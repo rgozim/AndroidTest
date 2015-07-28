@@ -32,7 +32,9 @@ public class ImageLoader {
             throw new InvalidParameterException("URL is empty!");
         }
 
-        // Can you think of a way to improve this?
+        // Can you think of a way to improve loading of bitmaps
+        // that have already been loaded previously??
+
         try {
             setImageView(imageView, convertToBitmap(loadImageData(url)));
         } catch (IOException e) {
@@ -53,8 +55,7 @@ public class ImageLoader {
             }
 
             // Can you think of a way to make the entire
-            // HTTP operation more efficient??
-
+            // HTTP more efficient using HTTP headers??
 
             return StreamUtils.readUnknownFully(inputStream);
         } finally {

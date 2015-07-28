@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * Fragment is responsible for loading in some JSON and
+     * then displaying a list of cakes with images.
+     * Fix any crashes
+     * Improve any performance issues
+     * Use good coding practices to make code more secure
      */
     public static class PlaceholderFragment extends ListFragment {
 
@@ -100,13 +105,18 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+
         private JSONArray loadData() throws IOException, JSONException {
             URL url = new URL(JSON_URL);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             try {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
-                // Read in stream of bytes
+                // Can you think of a way to improve the performance of loading data
+                // using HTTP headers???
+
+                // Also, Do you trust any utils thrown your way????
+
                 byte[] bytes = StreamUtils.readUnknownFully(in);
 
                 // Read in charset of HTTP content.
@@ -142,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private class MyAdapter extends BaseAdapter {
+
+            // Can you think of a better way to represent these items???
             private JSONArray mItems;
             private ImageLoader mImageLoader;
 
